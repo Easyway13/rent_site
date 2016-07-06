@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - rent_site@localhost" uuid="5051e6bb-b8ac-41a3-8975-1bfbf8a8e8b5">
+    <database-info product="MySQL" version="5.7.2-m12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="rent_site"/>
+      <table id="2" parent="1" name="comments"/>
+      <table id="3" parent="1" name="property"/>
+      <table id="4" parent="1" name="statistics"/>
+      <table id="5" parent="1" name="transactions"/>
+      <table id="6" parent="1" name="user"/>
+      <column id="7" parent="2" name="id_comments">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="8" parent="2" name="date">
+        <data-type>date</data-type>
+      </column>
+      <column id="9" parent="2" name="text">
+        <data-type>text</data-type>
+      </column>
+      <column id="10" parent="2" name="rate">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="11" parent="2" name="id_user">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="12" parent="2" name="id_property">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="13" parent="2" name="id_property">
+        <columns>id_property</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="14" parent="2" name="id_user">
+        <columns>id_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="15" parent="2" name="PRIMARY">
+        <columns>id_comments</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="16" parent="2" name="comments_ibfk_1">
+        <columns>id_user</columns>
+        <ref-key>~.user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="17" parent="2" name="comments_ibfk_2">
+        <columns>id_property</columns>
+        <ref-key>~.property.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="18" parent="3" name="id_property">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="19" parent="3" name="city">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="20" parent="3" name="address">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="21" parent="3" name="photo">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="22" parent="3" name="description">
+        <data-type>text</data-type>
+      </column>
+      <column id="23" parent="3" name="rooms_number">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="24" parent="3" name="beds_number">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="25" parent="3" name="parking">
+        <data-type>bit(1)</data-type>
+      </column>
+      <column id="26" parent="3" name="wi-fi">
+        <data-type>bit(1)</data-type>
+      </column>
+      <column id="27" parent="3" name="tv">
+        <data-type>bit(1)</data-type>
+      </column>
+      <column id="28" parent="3" name="avail_period">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <key id="29" parent="3" name="PRIMARY">
+        <columns>id_property</columns>
+        <primary>1</primary>
+      </key>
+      <column id="30" parent="4" name="id_statistics">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="31" parent="4" name="quantaty_rent">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="32" parent="4" name="earned_for_rent">
+        <data-type>double</data-type>
+      </column>
+      <column id="33" parent="4" name="paid_for_rent">
+        <data-type>double</data-type>
+      </column>
+      <column id="34" parent="4" name="id_user">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="35" parent="4" name="id_property">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="36" parent="4" name="id_property">
+        <columns>id_property</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="37" parent="4" name="id_user">
+        <columns>id_user</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="38" parent="4" name="PRIMARY">
+        <columns>id_statistics</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="39" parent="4" name="statistics_ibfk_1">
+        <columns>id_user</columns>
+        <ref-key>~.user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="40" parent="4" name="statistics_ibfk_2">
+        <columns>id_property</columns>
+        <ref-key>~.property.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="41" parent="5" name="id_transactions">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="42" parent="5" name="price">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="43" parent="5" name="period">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="44" parent="5" name="check_in">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="45" parent="5" name="check_out">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="46" parent="5" name="id_property">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="47" parent="5" name="id_property">
+        <columns>id_property</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="48" parent="5" name="PRIMARY">
+        <columns>id_transactions</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="49" parent="5" name="transactions_ibfk_1">
+        <columns>id_property</columns>
+        <ref-key>~.property.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="50" parent="6" name="id_user">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="51" parent="6" name="first_name">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="52" parent="6" name="last_name">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="53" parent="6" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="54" parent="6" name="phone">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="55" parent="6" name="photo">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="56" parent="6" name="description">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="57" parent="6" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="58" parent="6" name="landlord">
+        <data-type>bit(1)</data-type>
+      </column>
+      <column id="59" parent="6" name="id_property">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="60" parent="6" name="id_transactions">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="61" parent="6" name="id_property">
+        <columns>id_property</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="62" parent="6" name="id_transactions">
+        <columns>id_transactions</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="63" parent="6" name="PRIMARY">
+        <columns>id_user</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="64" parent="6" name="user_ibfk_1">
+        <columns>id_transactions</columns>
+        <ref-key>~.transactions.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="65" parent="6" name="user_ibfk_2">
+        <columns>id_property</columns>
+        <ref-key>~.property.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
